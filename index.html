@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Style 3 | Neo-Terminal Cyber</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #000000;
+    --text-main: #e2e8f0;
+    --text-muted: #94a3b8;
+    --border: #334155;
+    --cyan: #06b6d4;
+    --green: #10b981;
+    --amber: #f59e0b;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background-color: var(--bg); color: var(--text-main);
+    font-family: 'JetBrains Mono', monospace; line-height: 1.6;
+  }
+  
+  /* Subtle terminal grid */
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1;
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  nav {
+    display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 3rem;
+    border-bottom: 2px solid var(--border);
+  }
+  .logo { font-size: 1.25rem; font-weight: 800; color: var(--cyan); text-transform: uppercase; letter-spacing: 2px; }
+  .logo::before { content: ">_ "; color: var(--green); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; }
+  .nav-links a:hover { color: var(--cyan); }
+  
+  .container { max-width: 1000px; margin: 0 auto; padding: 5rem 2rem; }
+  
+  .hero { margin-bottom: 5rem; border-left: 4px solid var(--cyan); padding-left: 2rem; }
+  .hero-role { color: var(--amber); font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+  .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 4rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.1; }
+  .hero p { font-size: 1.1rem; color: var(--text-muted); max-width: 700px; margin-bottom: 2rem; }
+  
+  .btn {
+    display: inline-block; padding: 0.8rem 1.5rem; font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem; font-weight: 700; text-transform: uppercase; text-decoration: none;
+    border: 2px solid; transition: all 0.2s; cursor: pointer;
+  }
+  .btn-primary { background: var(--cyan); border-color: var(--cyan); color: #000; }
+  .btn-primary:hover { background: transparent; color: var(--cyan); box-shadow: 4px 4px 0 var(--cyan); transform: translate(-4px, -4px); }
+  .btn-ghost { background: transparent; border-color: var(--border); color: var(--text-main); margin-left: 1rem; }
+  .btn-ghost:hover { border-color: var(--text-main); }
+
+  .section-header { 
+    font-family: 'Space Grotesk', sans-serif; font-size: 2rem; margin-bottom: 2rem; 
+    border-bottom: 1px dashed var(--border); padding-bottom: 0.5rem;
+  }
+  .section-header span { color: var(--cyan); margin-right: 0.5rem; }
+
+  .project-item {
+    border: 1px solid var(--border); padding: 2rem; margin-bottom: 2rem;
+    position: relative; transition: all 0.2s; background: rgba(255,255,255,0.02);
+  }
+  .project-item:hover { border-color: var(--amber); box-shadow: -6px 6px 0 rgba(245, 158, 11, 0.2); transform: translate(2px, -2px); }
+  
+  .p-meta { display: flex; justify-content: space-between; margin-bottom: 1rem; font-size: 0.85rem; color: var(--text-muted); }
+  .p-status::before { content: "● "; color: var(--green); }
+  .project-item h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; margin-bottom: 1rem; color: var(--text-main); }
+  .project-item p { color: var(--text-muted); margin-bottom: 1.5rem; }
+  
+  .p-tags { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+  .tag {
+    font-size: 0.75rem; text-transform: uppercase; font-weight: 700;
+    padding: 0.2rem 0.6rem; border: 1px solid var(--border); color: var(--text-muted);
+  }
+  .project-item:hover .tag { border-color: var(--amber); color: var(--amber); }
+</style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Phil.Gu</div>
+    <ul class="nav-links">
+      <li><a href="#">// Projects</a></li>
+      <li><a href="#">// Experience</a></li>
+      <li><a href="#">[EN / ZH]</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="hero">
+      <div class="hero-role">Sys.Info: LLM Algorithm & RAG Developer</div>
+      <h1>Phil Gu</h1>
+      <p>Master of Computer Science (MCS) student specializing in LLM algorithm development, RAG architectures, and Explainable AI (XAI).</p>
+      <div>
+        <a href="#" class="btn btn-primary">Execute.Run()</a>
+        <a href="#" class="btn btn-ghost">Cat ./Contact</a>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="section-header"><span>01.</span> Projects</h2>
+      
+      <div class="project-item">
+        <div class="p-meta">
+          <span class="p-status">Active Pipeline</span>
+          <span>[ 2025 ]</span>
+        </div>
+        <h3>ARC-AGI Agent System</h3>
+        <p>Built a robust system supporting ARC-AGI research visualizing and evaluating >2000 puzzles. High-volume puzzle queries handled with < 20ms latency.</p>
+        <div class="p-tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">SMT/DSL</span></div>
+      </div>
+
+      <div class="project-item">
+        <div class="p-meta">
+          <span class="p-status">Completed</span>
+          <span>[ 2024 ]</span>
+        </div>
+        <h3>SquareOne Rentals AI</h3>
+        <p>Full-stack AI Agent System for real estate. Integrated geospatial routing and autonomous AI reasoning.</p>
+        <div class="p-tags"><span class="tag">Mapbox GL</span><span class="tag">LangChain</span><span class="tag">React</span></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
