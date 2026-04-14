@@ -35,6 +35,10 @@
   nav {
     display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 3rem;
     border-bottom: 2px solid var(--border);
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 10;
   }
   .logo { font-size: 1.25rem; font-weight: 800; color: var(--cyan); text-transform: uppercase; letter-spacing: 2px; }
   .logo::before { content: ">_ "; color: var(--green); }
@@ -42,7 +46,18 @@
   .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; }
   .nav-links a:hover { color: var(--cyan); }
   
-  .container { max-width: 1000px; margin: 0 auto; padding: 5rem 2rem; }
+  .container { 
+    max-width: 1000px; 
+    margin: 0 auto; 
+    padding: 5rem 3rem; 
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    border-left: 1px solid rgba(255,255,255,0.05);
+    border-right: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+    z-index: 1;
+  }
   
   .hero { margin-bottom: 5rem; border-left: 4px solid var(--cyan); padding-left: 2rem; }
   .hero-role { color: var(--amber); font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
@@ -67,7 +82,7 @@
 
   .project-item {
     border: 1px solid var(--border); padding: 2rem; margin-bottom: 2rem;
-    position: relative; transition: all 0.2s; background: rgba(255,255,255,0.02);
+    position: relative; transition: all 0.2s; background: rgba(5, 5, 10, 0.9);
   }
   .project-item:hover { border-color: var(--amber); box-shadow: -6px 6px 0 rgba(245, 158, 11, 0.2); transform: translate(2px, -2px); }
   
@@ -394,7 +409,7 @@
 
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${color}, 0.5)`;
+      ctx.fillStyle = `rgba(${color}, 0.8)`;
       ctx.fill();
 
       for (let j = i + 1; j < particles.length; j++) {
@@ -405,8 +420,8 @@
 
         if (dist < 120) {
           ctx.beginPath();
-          ctx.strokeStyle = `rgba(${color}, ${0.15 - dist/120 * 0.15})`;
-          ctx.lineWidth = 1;
+          ctx.strokeStyle = `rgba(${color}, ${0.35 - dist/120 * 0.35})`;
+          ctx.lineWidth = 1.6;
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(p2.x, p2.y);
           ctx.stroke();
@@ -418,8 +433,8 @@
       let dmdist = Math.sqrt(dmx * dmx + dmy * dmy);
       if (dmdist < 150) {
         ctx.beginPath();
-        ctx.strokeStyle = `rgba(${color}, ${0.4 - dmdist/150 * 0.4})`;
-        ctx.lineWidth = 1.2;
+        ctx.strokeStyle = `rgba(${color}, ${0.7 - dmdist/150 * 0.7})`;
+        ctx.lineWidth = 2.0;
         ctx.moveTo(p.x, p.y);
         ctx.lineTo(mouse.x, mouse.y);
         ctx.stroke();
