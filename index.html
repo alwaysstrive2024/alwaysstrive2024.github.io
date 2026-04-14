@@ -192,6 +192,7 @@
     <ul class="nav-links" style="gap: 1.5rem; align-items: center;">
       <li><a href="#experiences">// Experience</a></li>
       <li><a href="#projects">// Projects</a></li>
+      <li><a href="#academic">// Academic</a></li>
       <li><a href="#skills">// Skills</a></li>
       <li><a href="#publications">// Pubs</a></li>
       <li><a href="#about">// Intro</a></li>
@@ -270,27 +271,68 @@
 
       <div class="project-item">
         <div class="p-meta">
-          <span class="p-status">Active Pipeline</span>
-          <span>[ 2025 ]</span>
+          <span class="p-status">Externship</span>
+          <span>[ Mar 2025 ]</span>
         </div>
-        <h3>ARC-AGI Agent System</h3>
-        <p>Built a robust system supporting ARC-AGI research visualizing and evaluating >2000 puzzles. High-volume puzzle queries handled with < 20ms latency.</p>
-        <div class="p-tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">SMT/DSL</span></div>
+        <h3>No Language Left Behind (NLLB)</h3>
+        <ul class="project-list">
+          <li>Participated in the "No Language Left Behind (NLLB)" initiative to eliminate LLM performance disparities and biases across global language diversity, focusing on Critically Endangered and At Risk languages.</li>
+          <li>Implemented model fine-tuning via Learning Under Privileged Information (LUPI) using expert meta-information, optimizing convergence rates to O(1/n) and boosting low-resource reasoning accuracy.</li>
+          <li>Contributed to multi-language translation frameworks integrating large-scale Transformers and automated data pipelines to achieve cross-lingual understanding without pivoting.</li>
+        </ul>
+        <div class="p-tags"><span class="tag">LLM</span><span class="tag">LUPI</span><span class="tag">NLLB-200</span><span class="tag">Transformers</span><span class="tag">LUPI</span></div>
       </div>
 
       <div class="project-item">
         <div class="p-meta">
-          <span class="p-status">Completed</span>
-          <span>[ 2024 ]</span>
+          <span class="p-status">Active</span>
+          <span>[ Oct 2024 - May 2025 ]</span>
         </div>
-        <h3>SquareOne Rentals AI</h3>
-        <p>Full-stack AI Agent System for real estate. Integrated geospatial routing and autonomous AI reasoning.</p>
-        <div class="p-tags"><span class="tag">Mapbox GL</span><span class="tag">LangChain</span><span class="tag">React</span></div>
+        <h3>LTSM-Bundle: Large-Scale Time Series Foundation Model</h3>
+        <ul class="project-list">
+          <li>Architected a multi-agent collaboration pipeline integrating Planner, QA, TS, and Reward modules to dynamically route models including GPT-3, Phi-2, Informer, and PatchTST.</li>
+          <li>Conducted robust benchmarking using Statistical Time Series Prompts and Linear Tokenization techniques to enhance interpretability and scaling.</li>
+          <li>Deployed LoRA and full fine-tuning strategies to achieve a peak 38% reduction in Mean Absolute Error (MAE) using only 5% of original training data parameters.</li>
+        </ul>
+        <div class="p-tags"><span class="tag">Python</span><span class="tag">LoRA</span><span class="tag">Multi-Agent</span><span class="tag">Time Series</span><span class="tag">GPT-4</span><span class="tag">Phi-2</span></div>
+        <a href="https://github.com/datamllab/ltsm" target="_blank" class="contact-link" style="margin-top: 1rem; font-size: 0.8rem; border-color: rgba(6,182,212,0.3); color: var(--cyan);">[ View on GitHub ]</a>
       </div>
     </div>
 
     <div style="margin-top: 4rem;">
-      <h2 class="section-header" id="skills"><span>03.</span> Skills</h2>
+      <h2 class="section-header" id="academic"><span>03.</span> Academic Experience</h2>
+
+      <div class="project-item">
+        <div class="p-meta">
+          <span class="p-status">Research</span>
+          <span>[ Mar 2023 - Aug 2023 ]</span>
+        </div>
+        <h3>Cross-modal Audio Retrieval via Self-Attention</h3>
+        <ul class="project-list">
+          <li>Engineered a contrastive retrieval pipeline integrating GPT-augmented captions and self-attention to capture fine-grained acoustic and temporal features.</li>
+          <li>Mitigated mapping disparities in sparse or biased annotation environments, driving cross-modal matching performance forwards.</li>
+          <li>Achieved massive benchmark breakthroughs with Mean Average Precision (mAP) improvements of 27% on Clotho and 31% on AudioCaps datasets.</li>
+        </ul>
+        <div class="p-tags"><span class="tag">Deep Learning</span><span class="tag">Generative AI</span><span class="tag">Audio-Text</span><span class="tag">Self-Attention</span><span class="tag">CSCWD 2024</span></div>
+      </div>
+
+      <div class="project-item">
+        <div class="p-meta">
+          <span class="p-status">Research</span>
+          <span>[ Jul 2022 - Oct 2022 ]</span>
+        </div>
+        <h3>Seed-Driven Document Retrieval and Classification</h3>
+        <ul class="project-list">
+          <li>Optimized the GenPU framework to pioneer Few-shot document retrieval by introducing adversarial regularization to handle embedding distribution shifts.</li>
+          <li>Calibrated the latent space utilizing NeuralSort for differentiable ranking consistency and Sinkhorn-Knopp optimal transport algorithms.</li>
+          <li>Significantly elevated zero-shot cross-domain generalization, outperforming canonical PU and standard ranking baselines in Precision@k and mAP metrics.</li>
+        </ul>
+        <div class="p-tags"><span class="tag">Few-Shot Learning</span><span class="tag">Zero-Shot</span><span class="tag">NeuralSort</span><span class="tag">Sinkhorn-Knopp</span><span class="tag">NLP</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top: 4rem;">
+      <h2 class="section-header" id="skills"><span>04.</span> Skills</h2>
       <div class="project-item">
         <div style="display: flex; flex-direction: column; gap: 1.5rem;">
           <div>
@@ -316,7 +358,7 @@
     </div>
 
     <div style="margin-top: 4rem;">
-      <h2 class="section-header" id="publications"><span>04.</span> Publications</h2>
+      <h2 class="section-header" id="publications"><span>05.</span> Publications</h2>
 
       <div class="project-item" style="border-top: 2px solid var(--cyan);">
         <div class="p-meta">
@@ -340,7 +382,7 @@
     </div>
 
     <div style="margin-top: 4rem;">
-      <h2 class="section-header" id="about"><span>05.</span> Self Intro</h2>
+      <h2 class="section-header" id="about"><span>06.</span> Self Intro</h2>
       <div class="project-item">
         <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin-bottom: 1rem; color: var(--cyan);">Bridging AI Research & Engineering</h3>
         <p>I am currently pursuing my Master of Computer Science at <strong>Rice University</strong>, with a specialized focus on the full lifecycle of LLM application development. My passion lies in taking cutting-edge AI breakthroughs and building them into robust, production-ready systems.</p>
@@ -353,7 +395,7 @@
     </div>
 
     <div style="margin-top: 4rem;">
-      <h2 class="section-header" id="contact"><span>06.</span> Contact</h2>
+      <h2 class="section-header" id="contact"><span>07.</span> Contact</h2>
       <div class="project-item">
         <p>Open to opportunities in LLM engineering, AI backend, and Agentic system architecture. Feel free to connect!</p>
         <div class="contact-links">
