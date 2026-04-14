@@ -82,32 +82,177 @@
     padding: 0.2rem 0.6rem; border: 1px solid var(--border); color: var(--text-muted);
   }
   .project-item:hover .tag { border-color: var(--amber); color: var(--amber); }
+  
+  .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.9rem; font-weight: 500; text-decoration: none;
+    padding: 0.5rem 1rem; border: 1px solid var(--border); color: var(--text-main);
+    transition: all 0.2s; background: rgba(255,255,255,0.02);
+  }
+  .contact-link:hover {
+    border-color: var(--cyan); color: var(--cyan); transform: translateY(-2px);
+  }
+  
+  .project-list {
+    list-style: none;
+    margin-left: 0;
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+    counter-reset: project-counter;
+  }
+  .project-list li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.8rem;
+  }
+  .project-list li::before {
+    counter-increment: project-counter;
+    content: "0" counter(project-counter) ".";
+    position: absolute;
+    left: 0;
+    color: var(--cyan);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+  }
+  
+  .status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    background: rgba(16, 185, 129, 0.05);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: var(--green);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--green);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; box-shadow: 0 0 2px transparent; }
+    100% { opacity: 1; }
+  }
+  
+  .nav-contact {
+    border: 1px solid var(--cyan) !important;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    background-color: var(--cyan) !important;
+    color: #000 !important;
+    font-weight: 700 !important;
+    transition: all 0.2s;
+  }
+  .nav-contact:hover {
+    background-color: transparent !important;
+    color: var(--cyan) !important;
+    box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+  }
+  
+  #canvas-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    pointer-events: none;
+  }
 </style>
 </head>
 <body>
+  <canvas id="canvas-bg"></canvas>
   <nav>
     <div class="logo">Phil.Gu</div>
-    <ul class="nav-links">
-      <li><a href="#">// Projects</a></li>
-      <li><a href="#">// Experience</a></li>
-      <li><a href="#">[EN / ZH]</a></li>
+    <ul class="nav-links" style="gap: 1.5rem; align-items: center;">
+      <li><a href="#experiences">// Experience</a></li>
+      <li><a href="#projects">// Projects</a></li>
+      <li><a href="#skills">// Skills</a></li>
+      <li><a href="#publications">// Pubs</a></li>
+      <li><a href="#about">// Intro</a></li>
+      <li><a href="#contact" class="nav-contact">[ Contact ]</a></li>
     </ul>
   </nav>
 
   <div class="container">
     <div class="hero">
-      <div class="hero-role">Sys.Info: LLM Algorithm & RAG Developer</div>
+      <div class="hero-role">Info: AI Algorithm & LLM Researcher</div>
       <h1>Phil Gu</h1>
-      <p>Master of Computer Science (MCS) student specializing in LLM algorithm development, RAG architectures, and Explainable AI (XAI).</p>
+      <p>Master of Computer Science (MCS) student at Rice University, focusing on large model algorithms, RAG semantic retrieval, and AI agent systems. I bring first-principles understanding of neural networks and representation mechanisms, turning frontier research into production-ready engineering systems across RAG search, ARC-AGI reasoning platforms, and long-form financial modeling.</p>
+      <div class="status-indicator">
+        <span class="status-dot"></span>Status: Actively Seeking Opportunities
+      </div>
       <div>
-        <a href="#" class="btn btn-primary">Execute.Run()</a>
-        <a href="#" class="btn btn-ghost">Cat ./Contact</a>
+        <a href="#contact" class="btn btn-primary">Contact_Me</a>
+        <a href="#projects" class="btn btn-ghost">Execute.Run()</a>
       </div>
     </div>
 
-    <div>
-      <h2 class="section-header"><span>01.</span> Projects</h2>
+    <div style="margin-top: 4rem;">
+      <h2 class="section-header" id="experiences"><span>01.</span> Experiences</h2>
       
+      <div class="project-item">
+        <div class="p-meta">
+          <span class="p-status">Active</span>
+          <span>[ May 2025 - Aug 2025 ]</span>
+        </div>
+        <h3>Automated ARC-AGI Evaluation and Strategy Iteration</h3>
+        <ul class="project-list">
+          <li>Architected a multi-agent evaluation platform for >20k complex puzzles via LangChain and ReAct.</li>
+          <li>Designed stateful tools and SMT/DSL generation workflows deployed on Azure.</li>
+          <li>Achieved >55% accuracy on private datasets using test-time fine-tuning (TTFT) and AIRV strategies.</li>
+        </ul>
+        <div class="p-tags">
+          <span class="tag">Python</span><span class="tag">LangChain</span><span class="tag">ReAct</span><span class="tag">Agent</span><span class="tag">LangGraph</span><span class="tag">Docker</span><span class="tag">Azure</span><span class="tag">TTFT</span>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="p-meta">
+          <span class="p-status">Completed</span>
+          <span>[ Feb 2024 - Jul 2024 ]</span>
+        </div>
+        <h3>RAG Semantic Retrieval and Domain-adaptive Optimization</h3>
+        <ul class="project-list">
+          <li>Built an intelligent RAG advisory system utilizing semantic retrieval and knowledge graphs.</li>
+          <li>Integrated FAISS, BM25, and Flag BGE-M3 to boost NDCG@10 by 12% and achieve >300 QPS throughput.</li>
+          <li>Fine-tuned GPT models with qLoRA and utilized vLLM inference to reduce response latency by 40%.</li>
+        </ul>
+        <div class="p-tags">
+          <span class="tag">Python</span><span class="tag">FAISS</span><span class="tag">BM25</span><span class="tag">Redis</span><span class="tag">qLoRA</span><span class="tag">vLLM</span><span class="tag">RAG</span><span class="tag">Knowledge Graph</span>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="p-meta">
+          <span class="p-status">Completed</span>
+          <span>[ May 2023 - Sep 2023 ]</span>
+        </div>
+        <h3>Sparse Attention and Counterfactual Robustness for Long Text</h3>
+        <ul class="project-list">
+          <li>Enhanced financial long-form text modeling using Longformer and BigBird sparse attention frameworks.</li>
+          <li>Applied counterfactual learning algorithms to mitigate bias, boosting model recall by 30%.</li>
+          <li>Surpassed traditional Transformer baselines (BERT, XLNet) by ~30% in predicting stock market trends.</li>
+        </ul>
+        <div class="p-tags">
+          <span class="tag">PyTorch</span><span class="tag">Longformer</span><span class="tag">BigBird</span><span class="tag">Counterfactual Learning</span><span class="tag">NLP</span><span class="tag">Transformer</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 4rem;">
+      <h2 class="section-header" id="projects"><span>02.</span> Projects</h2>
+
       <div class="project-item">
         <div class="p-meta">
           <span class="p-status">Active Pipeline</span>
@@ -128,6 +273,172 @@
         <div class="p-tags"><span class="tag">Mapbox GL</span><span class="tag">LangChain</span><span class="tag">React</span></div>
       </div>
     </div>
+
+    <div style="margin-top: 4rem;">
+      <h2 class="section-header" id="skills"><span>03.</span> Skills</h2>
+      <div class="project-item">
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div>
+            <h4 style="color: var(--cyan); margin-bottom: 0.8rem; font-family: 'JetBrains Mono', monospace; text-transform: uppercase;">Deep Learning & Core AI</h4>
+            <div class="p-tags">
+              <span class="tag">PyTorch</span><span class="tag">vLLM</span><span class="tag">FAISS</span><span class="tag">LangChain</span><span class="tag">LLM Fine-tuning</span>
+            </div>
+          </div>
+          <div>
+            <h4 style="color: var(--cyan); margin-bottom: 0.8rem; font-family: 'JetBrains Mono', monospace; text-transform: uppercase;">Backend & Infrastructure</h4>
+            <div class="p-tags">
+              <span class="tag">FastAPI</span><span class="tag">Redis</span><span class="tag">Async IO</span><span class="tag">Python</span><span class="tag">Docker</span><span class="tag">Azure</span>
+            </div>
+          </div>
+          <div>
+            <h4 style="color: var(--cyan); margin-bottom: 0.8rem; font-family: 'JetBrains Mono', monospace; text-transform: uppercase;">Frontend & Visualization</h4>
+            <div class="p-tags">
+              <span class="tag">React</span><span class="tag">Mapbox GL JS</span><span class="tag">HTML/CSS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 4rem;">
+      <h2 class="section-header" id="publications"><span>04.</span> Publications</h2>
+
+      <div class="project-item" style="border-top: 2px solid var(--cyan);">
+        <div class="p-meta">
+          <span style="color: var(--cyan); border: 1px solid var(--cyan); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">IEEE CSCWD 2024</span>
+        </div>
+        <h3 style="font-size: 1.3rem;">Improving Text-to-Audio Retrieval with GPT-Augmented Captions</h3>
+        <p>Published in the 2024 27th International Conference on Computer Supported Cooperative Work in Design (CSCWD).</p>
+        <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.9rem;"><strong>Brief:</strong> Proposed a novel framework leveraging Large Language Models (LLMs) to augment audio captions, significantly improving the performance and semantic understanding of text-to-audio retrieval models.</p>
+        <a href="https://doi.org/10.1109/CSCWD61410.2024.10580534" target="_blank" class="contact-link" style="margin-top: 0.5rem; font-size: 0.8rem;">[ View DOI ]</a>
+      </div>
+
+      <div class="project-item" style="border-top: 2px solid var(--amber);">
+        <div class="p-meta">
+          <span style="color: var(--amber); border: 1px solid var(--amber); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">JRFM 2023</span>
+        </div>
+        <h3 style="font-size: 1.3rem; color: var(--text-main);">Lightweight Scheme to Capture Stock Market Sentiment</h3>
+        <p>Published in Journal of Risk and Financial Management (MDPI).</p>
+        <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.9rem;"><strong>Brief:</strong> Developed a lightweight and efficient natural language processing scheme to analyze and capture financial market sentiment from text data, demonstrating practical value in stock trend predicting.</p>
+        <a href="https://www.mdpi.com/search?q=Lightweight+Scheme+to+Capture+Stock+Market+Sentiment" target="_blank" class="contact-link" style="border-color: rgba(255,179,64,.3); color: var(--amber); margin-top: 0.5rem; font-size: 0.8rem;">[ View on MDPI ]</a>
+      </div>
+    </div>
+
+    <div style="margin-top: 4rem;">
+      <h2 class="section-header" id="about"><span>05.</span> Self Intro</h2>
+      <div class="project-item">
+        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin-bottom: 1rem; color: var(--cyan);">Bridging AI Research & Engineering</h3>
+        <p>I am currently pursuing my Master of Computer Science at <strong>Rice University</strong>, with a specialized focus on the full lifecycle of LLM application development. My passion lies in taking cutting-edge AI breakthroughs and building them into robust, production-ready systems.</p>
+        <ul class="project-list" style="margin-top: 1.5rem;">
+          <li><strong>Large Language Models:</strong> Expertise in model fine-tuning (qLoRA), test-time reasoning (TTFT), and efficient inference deployment (vLLM).</li>
+          <li><strong>RAG Search & Retrieval:</strong> Architecting high-throughput semantic search systems using FAISS, BM25, and Knowledge Graphs.</li>
+          <li><strong>AI Agentic Systems:</strong> Designing multi-agent, stateful workflows via LangChain, ReAct, and LangGraph to perform complex autonomous tasks.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top: 4rem;">
+      <h2 class="section-header" id="contact"><span>06.</span> Contact</h2>
+      <div class="project-item">
+        <p>Open to opportunities in LLM engineering, AI backend, and Agentic system architecture. Feel free to connect!</p>
+        <div class="contact-links">
+          <a href="mailto:fg53@rice.edu" class="contact-link"><span style="color: var(--cyan); font-weight: 700;">[MAIL]</span> fg53@rice.edu</a>
+          <a href="tel:+13465996785" class="contact-link"><span style="color: var(--cyan); font-weight: 700;">[TEL]</span> +1 3465996785</a>
+          <a href="https://github.com/alwaysstrive2024" target="_blank" class="contact-link"><span style="color: var(--cyan); font-weight: 700;">[GIT]</span> alwaysstrive2024</a>
+          <span class="contact-link"><span style="color: var(--cyan); font-weight: 700;">[WeChat]</span> gfy1811062017</span>
+        </div>
+      </div>
+    </div>
   </div>
+
+<script>
+  const canvas = document.getElementById('canvas-bg');
+  const ctx = canvas.getContext('2d');
+  let width, height;
+  let particles = [];
+  const mouse = { x: -9999, y: -9999 };
+
+  // Cyber cyan color
+  const color = '6, 182, 212';
+
+  function initCanvas() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+    
+    particles = [];
+    const particleCount = Math.floor((width * height) / 12000); 
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 1.2,
+        vy: (Math.random() - 0.5) * 1.2,
+        radius: Math.random() * 1.5 + 0.5
+      });
+    }
+  }
+
+  function animate() {
+    requestAnimationFrame(animate);
+    ctx.clearRect(0, 0, width, height);
+
+    for (let i = 0; i < particles.length; i++) {
+      let p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+
+      if (p.x < 0 || p.x > width) p.vx *= -1;
+      if (p.y < 0 || p.y > height) p.vy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${color}, 0.5)`;
+      ctx.fill();
+
+      for (let j = i + 1; j < particles.length; j++) {
+        let p2 = particles[j];
+        let dx = p.x - p2.x;
+        let dy = p.y - p2.y;
+        let dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < 120) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(${color}, ${0.15 - dist/120 * 0.15})`;
+          ctx.lineWidth = 1;
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.stroke();
+        }
+      }
+
+      let dmx = p.x - mouse.x;
+      let dmy = p.y - mouse.y;
+      let dmdist = Math.sqrt(dmx * dmx + dmy * dmy);
+      if (dmdist < 150) {
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(${color}, ${0.4 - dmdist/150 * 0.4})`;
+        ctx.lineWidth = 1.2;
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(mouse.x, mouse.y);
+        ctx.stroke();
+      }
+    }
+  }
+
+  window.addEventListener('resize', initCanvas);
+  window.addEventListener('mousemove', (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+  window.addEventListener('mouseout', () => {
+    mouse.x = -9999;
+    mouse.y = -9999;
+  });
+
+  initCanvas();
+  animate();
+</script>
 </body>
 </html>
